@@ -1,5 +1,5 @@
 # NuxgeEngine
-A simple NodeJS Minecraft AntiKB
+Un simple Anti-KB pour Minecraft fait en NodeJS !
 
 ### Installation
 
