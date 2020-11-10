@@ -1,0 +1,17 @@
+{
+  "name": "NuxgeClient",
+  "version": "1.0.0",
+  "description": "Minecraft Hacked Client",
+  "main": "index.js",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "minecraft-protocol": "^1.19.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node ./src/index.js"
+  },
+  "keywords": [],
+  "author": "Nuxge",
+  "license": "ISC"
+}
