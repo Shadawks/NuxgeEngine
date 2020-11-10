@@ -5,7 +5,7 @@ A simple NodeJS Minecraft AntiKB
 
 1. Installer [Node.js](https://nodejs.org/)
 
-2. Modifier le fichier "config.json" avec vos informations 
+2. Modifier le fichier "config.json" avec vos informations
 (Le serveur sur lequel vous voulez jouer, la version de votre jeu, l'email et le mot de passe du compte Minecraft)
 
 3. Ouvrir le Terminal
