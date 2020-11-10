@@ -1,7 +1,7 @@
 # NuxgeEngine
 Un simple Anti-KB pour Minecraft fait en NodeJS !
 
-### Installation
+## Installation
 
 1. Installer [Node.js](https://nodejs.org/)
 
