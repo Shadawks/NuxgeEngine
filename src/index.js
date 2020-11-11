@@ -14,8 +14,8 @@ console.log(`[ Welcome to NuxgeEngine ! ]\n\n`.rainbow)
 console.log(`Game version : ${version}\nServer adress: ${server_ip}\n\n\n[ LOGS ]\n`.yellow)
 
 server.on('login', client => {
-    let entityid
-    
+    let playerID
+    let playerUUID = client.uuid
     console.log(`[ + ] Connected : ${client.profile.name} (id: ${client.profile.id})`.green)
     
     const target = minecraft.createClient({
@@ -36,11 +36,12 @@ server.on('login', client => {
         if (meta.state === minecraft.states.PLAY && client.state === minecraft.states.PLAY) {
             client.write(meta.name, data)
             if(meta.name === 'login')
-                entityid = data.entityId
+                playerID = data.entityId
+                client.write('entity_status', { entityId: playerID, entityStatus: 28 })
             if (meta.name === 'set_compression')
                 client.compressionThreshold = data.threshold
-            if (meta.name === 'entity_velocity' && data.entityId === entityid)
-                client.write('entity_velocity', { entityId: data.entityId, velocityX: data.velocityX/10, velocityY: data.velocityY, velocityZ: data.velocityZ/10 })
+            if (meta.name === 'entity_velocity' && data.entityId === playerID)
+                client.write('entity_velocity', { entityId: data.entityId, velocityX: data.velocityX/3, velocityY: data.velocityY, velocityZ: data.velocityZ/3 })
         }
     })
     
