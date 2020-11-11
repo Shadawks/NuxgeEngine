@@ -34,14 +34,14 @@ server.on('login', client => {
     
     target.on('packet', (data, meta) => {
         if (meta.state === minecraft.states.PLAY && client.state === minecraft.states.PLAY) {
-            client.write(meta.name, data)
-            if(meta.name === 'login')
+            if (meta.name === 'login')
                 playerID = data.entityId
-                client.write('entity_status', { entityId: playerID, entityStatus: 28 })
             if (meta.name === 'set_compression')
                 client.compressionThreshold = data.threshold
-            if (meta.name === 'entity_velocity' && data.entityId === playerID)
+            else if (meta.name === 'entity_velocity' && data.entityId === playerID)
                 client.write('entity_velocity', { entityId: data.entityId, velocityX: data.velocityX/3, velocityY: data.velocityY, velocityZ: data.velocityZ/3 })
+            else
+                client.write(meta.name, data)
         }
     })
     
